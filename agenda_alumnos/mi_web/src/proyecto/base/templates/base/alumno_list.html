@@ -1,0 +1,70 @@
+{% extends 'base/principal.html' %}
+{% block content %}
+{% load static %}
+
+<div class="barra-superior">
+
+    <div>
+        <h1 style="color:black; margin-left: 15px;">Hola Profesor/a: {{request.user|title}}</h1>
+
+        <h3 style="color:black; margin:1; margin-left: 15px;">Tienes {{count}} alumno{{count|pluralize}} pendiente{{count|pluralize}}</h3>
+    </div>
+    {% if request.user.is_authenticated %}
+       <span><a style="color:black" href="{% url 'logout' %}">Salir</a></span>
+    {% else %}
+       <a href="{% url 'login' %}">Ingresar</a>
+    {% endif %}
+
+</div>
+
+<div id="envoltorio-agregar-buscar">
+    <form method="GET" style="margin-top: 18px; display; flex;">
+      <input style="border:1px solid black" type="text" name="area-buscar" value="{{valor_buscado}}">
+      <input class="boton" type="submit" value="Buscar">
+
+    </form>
+    <a id="enlace-agregar" href ="{% url 'crear-alumnos' %}">&#x1F7A5;</a>
+
+</div>
+
+
+
+
+
+
+<div class="envoltorio-items-alumno">
+    {% for alumno in alumnos %}
+    <div class="envoltorio-alumno">
+        {% if alumno.completo %}
+        <div class="nombre-alumno">
+            <div class="icono-alumno-completa">&#x2714;</div>
+            <i><s><a href="{% url 'editar-alumnos' alumno.id %}">{{alumno.nombre}} {{alumno.apellido}}</a></s></i>
+
+        </div>
+        <a class="enlace-eliminar" href="{% url 'eliminar-alumnos' alumno.id %}">&#x292C;</a>
+
+        {% else %}
+        <div class="nombre-alumno">
+            <div class="icono-alumno-incompleta">&#x2714;</div>
+            <a href="{% url 'editar-alumnos' alumno.id %}">{{alumno.nombre}} {{alumno.apellido}}</a>
+        </div>
+        <a class="enlace-eliminar" href="{% url 'eliminar-alumnos' alumno.id %}">&#x292C;</a>
+        {% endif %}
+
+    </div>
+    {% empty%}
+    <h3>No hay elementos en la lista</h3>
+
+    {% endfor %}
+
+</div>
+
+<div class="pie">
+     <h3 style="color:white;margin-left: 5px; text-shadow:1px 1px black">Fabrizio Mendez</h3>
+
+    <span><a ><img src="{%static 'logo111.jpeg' %}"></a></span>
+</div>
+
+{% endblock content %}
+
+

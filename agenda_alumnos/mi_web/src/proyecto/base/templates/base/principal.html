@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alumnos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <style>
+
+        body{
+            background-image: url('{% static "imagen5.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family:'Oswald', sans-serif;
+            padding-top:40px;
+        }
+        .container{
+            max-width:550px;
+            margin: auto;
+            background-color:#B44BD5;
+            -webkit-box-shadow:2px 2px 13px -4px rgba(0,0,0,0.21);
+            box-shadow:2px 2px 13px -4px rgba(0,0,0,0.21);
+        }
+         a, p {
+            color:black;
+            font-size: 18px;
+            
+        }
+
+        .barra-superior{
+            display:flex;
+            justify-content: space-between;
+            color:  #ffffff;
+            border-radius: 5px 5px 0 0;
+            background-color:white;
+
+        }
+        .barra-superior a {
+            color:white;
+            text-decoration: none;
+            margin-left: 10px;
+
+        }
+
+
+        .envoltorio-alumno {
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #1E88A5;
+
+        }
+        .nombre-alumno {
+            display:flex;
+         }
+        .nombre-alumno a {
+            text-decoration:none;
+            color:#4b5156;
+            margin-left: 10px;
+        }
+        .icono-alumno-completa {
+            color:green;
+            font-size:20px;
+
+        }
+        .icono-alumno-incompleta {
+            color: rgb(218,218,218);
+            font-size:20px;
+
+        }
+        .enlace-eliminar{
+            text-decoration:none;
+            font-weight:900;
+            color: black ;
+            font-size: 22px;
+            line-height:0;
+        }
+        #envoltorio-agregar-buscar {
+            background-color:#B44BD5;
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            font-size:14px;
+            border-radius: 5px;
+        }
+        #enlace-agregar {
+            color: white;
+            text-decoration: none;
+            font-size: 42px;
+            text-shadow:1px 1px black;
+        }
+        input[type=text],
+        input[type=password],
+        textarea {
+            border: 1px solid black;
+            border-radius:5px;
+            padding: 10px;
+            widht:90%;
+        }
+        label {
+            padding-top: 10px !important;
+            display: block;
+        }
+        .boton {
+            border: 1px solid black;
+            background-color: #FAFAFA;
+            color:black;
+            padding: 10px;
+            font-size:14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration:none;
+        }
+        .cuerpo-formulario {
+            padding:40px;
+        }
+        .pie {
+           font-size: 15px;
+           display: flex;
+           color: white;
+           border-radius: 5px;
+           background: #B44BD5;
+           padding: 15px;
+           height: 75px;
+
+       }
+       .pie h3 {
+          color: black;
+          height: 80px;
+          margin-left: 15px;
+          font-size: 25px;
+          white-space: nowrap;
+          padding-top:-80px;
+
+       }
+       .pie img {
+         width: 60px;
+         height: 80px;
+         margin-left: 300px;
+         margin-right: 250px;
+         border-radius: 1000px;
+         padding-top:-50px;
+         text-shadow:2px 2px white;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+
+    </div>
+
+</body>
+</html>

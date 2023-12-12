@@ -1,0 +1,28 @@
+{% extends 'base/principal.html' %}
+{% block content %}
+<div class="barra-superior">
+     <a style="color:black" href="{% url 'alumnos' %}">&#x2BAA;Volver</a>
+</div>
+
+<div class="cuerpo-formulario">
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div id="current_date" style="color:black;">
+        <script>
+        date = new Date();
+        year = date.getFullYear();
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
+        </script>
+        </div>
+        <input class="boton" type="submit" value="Enviar" style="margin-top:20px">
+    </form>
+</div>
+
+{% endblock content %}
+
+
+
+
